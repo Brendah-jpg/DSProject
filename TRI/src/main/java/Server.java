@@ -2,6 +2,7 @@ import java.net.*;
 import java.io.*;
 
 public class Server {
+    // initialisation
    private Socket socket = null;
    private ServerSocket server = null;
    private DataInputStream in = null;
@@ -10,27 +11,23 @@ public class Server {
       try{
           server = new ServerSocket(port);
           System.out.println("Server started \n" + "Waiting for a client ...\n");
-
+            // when connection is successful, it displays the accepted message
           socket = server.accept();
           System.out.println("Client accepted");
-          /*in = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
-          PrintWriter pw = new PrintWriter(socket.getOutputStream(), true);
-          pw.println("Enter your name: ");*/
 
-          /*    OutputStream os = socket.getOutputStream();
-                PrintWriter pw = new PrintWriter(os, true);
-                pw.println("What's your name?");
-            */
+          in = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
 
           String line = "";
+          // the client can enter any information until they type over
           while (!line.equals("Over")){
-              try{
+         try{
                   line = in.readUTF();
                   System.out.println(line);
               }catch (IOException i){
                   System.out.println(i);
               }
           }
+
             System.out.println("Closing connection");
             socket.close();
             in.close();

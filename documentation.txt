@@ -1,0 +1,14 @@
+Project Documentation
+    Group Members:
+	~ Adah Kerubo 110695
+	~ Shawn Ngiela 111882
+	~ Brendah Ondieki 112059
+
+The project requirements is to have a client and server program that allows 
+interactions using RPC techniques, allowing them to send and prompt 
+information from each other.The first step in this venture was to 
+establish a connection between the two parties. Once a connection was 
+established, the client can transmit anything to the server 
+until the client typed 'Over'. The server socket, once the client sends a message
+was able to receive and display what the message was. Once the client side 
+typed 'Over', the server side would ensure all connections were terminated.
